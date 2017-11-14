@@ -17,7 +17,7 @@ public class Sorting {
     private static final int SORT_INCREMENT = 10000;
 
     /** Total number of values to try. */
-    private static final int TOTAL_SORT_VALUES = 100;
+    private static final int TOTAL_SORT_VALUES = 20;
 
     /** Total data size. */
     private static final int TOTAL_INTEGER_VALUES = 1000000;
@@ -95,7 +95,13 @@ public class Sorting {
      * @return the sorted array, or null on failure
      */
     static int[] mergeSort(final int[] array) {
-        return null;
+        int[] newArray = new int[array.length];
+        for (int i = 0; i < array.length; i++) {
+            newArray[i] = array[i];
+        }
+        int mid = array.length / 2;
+
+        return newArray;
     }
 
     /**
@@ -125,6 +131,7 @@ public class Sorting {
         }
 
         /* TO DO: Merge left and right array here */
+
         return arr;
     }
 
