@@ -4,7 +4,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Scanner;
 import javax.swing.JFrame;
-
+@SuppressWarnings("checkstyle:all")
 /**
  * Class implementing sorting algorithms.
  *
@@ -29,7 +29,18 @@ public class Sorting {
      * @return the sorted array, or null on failure
      */
     static int[] bubbleSort(final int[] array) {
-        return null;
+        int[] newArray = new int[array.length];
+        for (int i = 0; i < array.length; i++) {
+            newArray[i] = array[i];
+        }
+        for (int i = 1; i < array.length; i++) {
+            if (newArray[i] < newArray[i-1]) {
+                int temp = newArray[i];
+                newArray[i] = newArray[i-1];
+                newArray[i-1] = temp;
+            }
+        }
+        return newArray;
     }
 
     /**
@@ -39,8 +50,43 @@ public class Sorting {
      * @return the sorted array, or null on failure
      */
     static int[] selectionSort(final int[] array) {
-        return null;
+        int n = array.length;
+        int[] newArray = new int[n];
+        for (int i = 0; i < n; i++) {
+            newArray[i] = array[i];
+        }
+        for (int i = 0; i < n - 1; i++) {
+            // Find the minimum element in unsorted array
+            int idx = i;
+            for (int j = i + 1; j < n; j++) {
+                if (array[j] < array[idx]) {
+                    idx = j;
+                }
+
+            // Swap the found minimum element with the first
+            // element
+            int temp = array[idx];
+            array[idx] = array[i];
+            array[i] = temp;
+        }
+        }
+        return newArray;
     }
+     public int findMin(int[] data, int lo, int hi) {
+         int temp = lo;
+         for (int i = lo; i < hi; i++) {
+             if (data[temp] > data[i]) {
+                 temp = i;
+             }
+         }
+         return temp;
+     }
+     public void swap(int[] data, int x, int y) {
+         int temp = data[x];
+         data[x] = data[y];
+         data[y] = temp;
+     }
+
 
     /**
      * Merge sort.
